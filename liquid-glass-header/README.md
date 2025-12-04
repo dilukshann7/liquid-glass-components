@@ -312,4 +312,4 @@ For issues, questions, or contributions, please visit the project repository.
 
 ---
 
-**Made with 🌊 and WebGL**
+**Made with ❤️ and WebGL**
