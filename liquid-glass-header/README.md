@@ -1,351 +1,315 @@
-# LiquidGL Header Component - Module Version
+# 🌊 Liquid Glass Header
 
-## 🚀 Super Easy Integration
+A stunning, interactive header component featuring WebGL-powered glassmorphism effects. Built with liquidGL and ES6 modules for easy integration.
 
-### Installation
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-**Option 1: ES6 Module (Recommended)**
-```javascript
-import { LiquidGLHeader } from './liquidgl-header.module.js';
-```
+## ⚠️ Browser Compatibility
 
-**Option 2: Script Tag**
+**IMPORTANT: This component currently works only with the latest version of Google Chrome.**
+
+- ✅ Chrome (latest version) - **Fully Supported**
+- ❌ Firefox - Not yet supported
+- ❌ Safari - Not yet supported
+- ❌ Edge - Not yet supported
+- ❌ Other browsers - Not yet supported
+
+The component uses advanced WebGL features and CSS properties that may not be fully compatible with other browsers. We are working on broader browser support in future releases.
+
+## ✨ Features
+
+- 🎨 **Ultra-realistic glass effect** with refraction, frost, and chromatic aberration
+- 💎 **Customizable properties** - control refraction, frost, bevel depth, magnification, and more
+- 🎬 **Smooth reveal animations** with GSAP integration
+- 📱 **Responsive design** with mobile-optimized settings
+- ⚡ **Hardware-accelerated** WebGL rendering
+- 🔌 **Easy integration** as ES6 module
+- 🎯 **Flexible navigation** with built-in social media icons
+
+## 📦 Installation
+
+### Prerequisites
+
+Include the required dependencies in your HTML:
+
 ```html
-<script src="liquidgl-header.module.js"></script>
-<!-- Access via window.LiquidGLHeader -->
-```
-
----
-
-## 📖 Basic Usage
-
-### 1. Include Dependencies
-
-```html
-<!-- Add before closing </body> -->
+<!-- GSAP for animations -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="path/to/liquidGL.js"></script>
-<script src="path/to/html2canvas.min.js"></script>
+
+<!-- html2canvas for snapshot capture -->
+<script src="./html2canvas.min.js"></script>
+
+<!-- liquidGL core library -->
+<script src="./liquidGL.js"></script>
 ```
 
-### 2. Import and Render
+### Basic Setup
 
-**ES6 Module:**
-```javascript
-import { LiquidGLHeader } from './liquidgl-header.module.js';
-
-const header = new LiquidGLHeader({
-  brandName: 'My Brand',
-  logo: './logo.svg',
-  links: [
-    { text: 'Home', href: '#' },
-    { text: 'About', href: '#about' },
-    { text: 'Contact', href: '#contact' }
-  ]
-});
-
-header.render('body'); // or '#app' or any selector
-```
-
-**Script Tag (No bundler):**
 ```html
+<div id="app"></div>
+
 <script type="module">
-  import { LiquidGLHeader } from './liquidgl-header.module.js';
-  
-  new LiquidGLHeader({
-    brandName: 'My Brand',
-    links: [{ text: 'Home', href: '#' }]
-  }).render('body');
+  import { LiquidGLHeader } from "./liquidgl-header.module.js";
+
+  const header = new LiquidGLHeader({
+    logo: "./assets/logo.svg",
+    brandName: "My Brand",
+    links: [
+      { text: "Features", href: "#features" },
+      { text: "Docs", href: "#docs" },
+      { text: "About", href: "#about" },
+    ],
+    socials: [
+      {
+        icon: "github",
+        href: "https://github.com/yourusername",
+        label: "GitHub",
+      },
+      {
+        icon: "twitter",
+        href: "https://twitter.com/yourusername",
+        label: "Twitter",
+      },
+    ],
+  });
+
+  header.render("#app");
 </script>
 ```
 
----
+## 🎛️ Configuration Options
 
-## 🎨 Props API
+### Brand Configuration
 
-### Brand Props
+| Option      | Type   | Default               | Description        |
+| ----------- | ------ | --------------------- | ------------------ |
+| `logo`      | string | `"./assets/logo.svg"` | Path to logo image |
+| `logoAlt`   | string | `"Logo"`              | Alt text for logo  |
+| `brandName` | string | `"LiquidGL"`          | Brand name text    |
+| `brandHref` | string | `"#"`                 | Brand link URL     |
+
+### Navigation Links
+
 ```javascript
-{
-  logo: './assets/logo.svg',        // Logo image path
-  logoAlt: 'Logo',                  // Alt text for logo
-  brandName: 'LiquidGL',            // Brand name text
-  brandHref: '#',                   // Brand link URL
-}
+links: [
+  { text: "Link Text", href: "#url" },
+  // Add more links...
+];
 ```
 
-### Navigation Props
+### Social Media Links
+
+Supported icons: `github`, `twitter`, `linkedin`, `youtube`, `instagram`
+
 ```javascript
-{
-  links: [
-    { text: 'Features', href: '#features' },
-    { text: 'Docs', href: '#docs' },
-    { text: 'Pricing', href: '#pricing' }
-  ]
-}
+socials: [
+  { icon: "github", href: "https://github.com/...", label: "GitHub" },
+  { icon: "twitter", href: "https://twitter.com/...", label: "Twitter" },
+  // Add more social links...
+];
 ```
 
-### Social Links Props
-```javascript
-{
-  socials: [
-    { icon: 'github', href: 'https://github.com/user', label: 'GitHub' },
-    { icon: 'twitter', href: 'https://twitter.com/user', label: 'Twitter' },
-    { icon: 'linkedin', href: 'https://linkedin.com/in/user' },
-    { icon: 'youtube', href: 'https://youtube.com/c/channel' },
-    { icon: 'instagram', href: 'https://instagram.com/user' }
-  ]
-}
-```
+### Glass Effect Options
 
-### LiquidGL Effect Props
-```javascript
-{
-  refraction: 0.026,      // Refraction intensity (0.01 - 0.05)
-  frost: 0.712,           // Frost/blur amount (0 - 1)
-  bevelDepth: 0.119,      // Bevel depth
-  bevelWidth: 0.057,      // Bevel width
-  magnify: 1.2,           // Magnification level (1.0 - 2.0)
-  shadow: true,           // Enable shadow
-  specular: true,         // Enable specular highlights
-  resolution: 2           // Render resolution (1-4)
-}
-```
+| Option                | Type    | Default                              | Range      | Description                 |
+| --------------------- | ------- | ------------------------------------ | ---------- | --------------------------- |
+| `refraction`          | number  | `0.026` (desktop) / `0.011` (mobile) | 0.0 - 0.1  | Light refraction intensity  |
+| `frost`               | number  | `0.712`                              | 0.0 - 1.0  | Frosted glass blur amount   |
+| `bevelDepth`          | number  | `0.119`                              | 0.0 - 0.5  | 3D bevel depth              |
+| `bevelWidth`          | number  | `0.057`                              | 0.0 - 0.5  | 3D bevel width              |
+| `magnify`             | number  | `1.2`                                | 0.5 - 3.0  | Magnification strength      |
+| `shadow`              | boolean | `true`                               | -          | Enable drop shadow          |
+| `specular`            | boolean | `true`                               | -          | Enable specular highlights  |
+| `resolution`          | number  | `2`                                  | 0.5 - 3.0  | Rendering resolution        |
+| `chromaticAberration` | number  | `0`                                  | 0.0 - 0.02 | Chromatic aberration effect |
 
-### Animation Props
-```javascript
-{
-  animationDuration: 1.2,      // Duration in seconds
-  animationDelay: 0.5,         // Delay before animation
-  animationEase: 'expo.out'    // GSAP easing
-}
-```
+### Animation Options
 
-### Custom Styles Props
-```javascript
-{
-  customStyles: {
-    css: `
-      .liquidgl-header-container {
-        height: 80px;
-        border-radius: 20px;
-      }
-      .liquidgl-nav-link {
-        font-size: 18px;
-        text-transform: uppercase;
-      }
-    `
-  }
-}
-```
+| Option              | Type   | Default      | Description                   |
+| ------------------- | ------ | ------------ | ----------------------------- |
+| `animationDuration` | number | `1.2`        | Animation duration in seconds |
+| `animationDelay`    | number | `0.5`        | Delay before animation starts |
+| `animationEase`     | string | `"expo.out"` | GSAP easing function          |
 
-### Callback Props
+### Callbacks
+
 ```javascript
 {
-  onInit: (intro) => {
-    console.log('LiquidGL initialized', intro);
+  onInit: (lens) => {
+    console.log("Header initialized", lens);
   },
   onReady: (glassEffect) => {
-    console.log('Header ready', glassEffect);
+    console.log("Glass effect ready", glassEffect);
   }
 }
 ```
 
----
+## 💡 Advanced Usage
 
-## 📋 Complete Example
+### Custom Styling
 
 ```javascript
-import { LiquidGLHeader } from './liquidgl-header.module.js';
-
 const header = new LiquidGLHeader({
-  // Brand
-  logo: './assets/logo.svg',
-  logoAlt: 'My Company',
-  brandName: 'My Company',
-  brandHref: '/',
-  
-  // Navigation
-  links: [
-    { text: 'Home', href: '/' },
-    { text: 'Features', href: '#features' },
-    { text: 'Pricing', href: '#pricing' },
-    { text: 'About', href: '#about' },
-    { text: 'Contact', href: '#contact' }
-  ],
-  
-  // Social Links
-  socials: [
-    { icon: 'github', href: 'https://github.com/mycompany' },
-    { icon: 'twitter', href: 'https://twitter.com/mycompany' },
-    { icon: 'linkedin', href: 'https://linkedin.com/company/mycompany' }
-  ],
-  
-  // Glass Effect
-  refraction: 0.03,
-  frost: 0.5,
-  magnify: 1.1,
-  shadow: true,
-  specular: true,
-  
-  // Animation
-  animationDuration: 1.5,
-  animationDelay: 0.3,
-  animationEase: 'power2.out',
-  
-  // Custom Styles
+  // ... other options
   customStyles: {
     css: `
-      .liquidgl-brand-name {
-        font-size: 20px;
-        letter-spacing: 1px;
+      .liquidgl-header {
+        padding: 0 32px;
       }
-      .liquidgl-nav-link:hover {
-        opacity: 1;
-        text-decoration: underline;
+      .liquidgl-nav-link {
+        font-size: 14px;
       }
-    `
+    `,
   },
-  
-  // Callbacks
-  onInit: (intro) => console.log('Initialized!'),
-  onReady: (effect) => console.log('Ready!', effect)
 });
-
-// Render the header
-header.render('body');
 ```
 
----
+### Updating Configuration
 
-## 🔧 API Methods
-
-### `render(selector)`
-Renders the header component to the specified selector.
 ```javascript
-header.render('#app');
-header.render('body');
-header.render(document.querySelector('.container'));
+// Update props dynamically
+header.update({
+  refraction: 0.05,
+  frost: 0.8,
+});
 ```
 
-### `update(newProps)`
-Update props (note: requires re-render).
-```javascript
-header.update({ brandName: 'New Brand' });
-```
+### Destroying the Component
 
-### `destroy()`
-Remove the header component and clean up.
 ```javascript
 header.destroy();
 ```
 
----
+## 📱 Responsive Behavior
 
-## 🎯 Framework Examples
+The component automatically adjusts for mobile devices:
 
-### React
-```jsx
-import { useEffect, useRef } from 'react';
-import { LiquidGLHeader } from './liquidgl-header.module.js';
+- Lower refraction values for better performance
+- Adjusted container dimensions and positioning
+- Touch-optimized interactions
 
-function App() {
-  const containerRef = useRef(null);
-  
-  useEffect(() => {
-    const header = new LiquidGLHeader({
-      brandName: 'React App',
-      links: [{ text: 'Home', href: '/' }]
-    });
-    
-    header.render(containerRef.current);
-    
-    return () => header.destroy();
-  }, []);
-  
-  return <div ref={containerRef}></div>;
-}
-```
+## 🎨 Complete Example
 
-### Vue 3
-```vue
-<template>
-  <div ref="headerContainer"></div>
-</template>
-
-<script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-import { LiquidGLHeader } from './liquidgl-header.module.js';
-
-const headerContainer = ref(null);
-let header;
-
-onMounted(() => {
-  header = new LiquidGLHeader({
-    brandName: 'Vue App',
-    links: [{ text: 'Home', href: '/' }]
-  });
-  header.render(headerContainer.value);
-});
-
-onUnmounted(() => {
-  if (header) header.destroy();
-});
-</script>
-```
-
-### Vanilla JS
-```html
-<div id="header-container"></div>
-
-<script type="module">
-  import { LiquidGLHeader } from './liquidgl-header.module.js';
-  
-  new LiquidGLHeader({
-    brandName: 'My Site',
-    links: [{ text: 'Home', href: '/' }]
-  }).render('#header-container');
-</script>
-```
-
----
-
-## 🐛 Troubleshooting
-
-**Module not loading?**
-- Make sure your server supports ES6 modules
-- Check the file path is correct
-- Use `type="module"` in script tag
-
-**Header not appearing?**
-- Verify liquidGL.js is loaded before the module
-- Check browser console for errors
-- Ensure target selector exists in DOM
-
-**No glass effect?**
-- Page needs background content/images
-- Try increasing `refraction` value
-- Check WebGL is enabled in browser
-
----
-
-## 📦 File Structure
-```
-your-project/
-├── liquidgl-header.module.js   ← Import this
-├── scripts/
-│   ├── liquidGL.js
-│   └── html2canvas.min.js
-├── assets/
-│   └── logo.svg
-└── index.html
-```
-
----
-
-## ✨ That's it!
-Three lines to add a beautiful glass header to any site:
 ```javascript
-import { LiquidGLHeader } from './liquidgl-header.module.js';
-new LiquidGLHeader({ brandName: 'My Site' }).render('body');
+import { LiquidGLHeader } from "./liquidgl-header.module.js";
+
+const header = new LiquidGLHeader({
+  // Brand
+  logo: "./assets/logo.svg",
+  logoAlt: "My Company",
+  brandName: "My Company",
+  brandHref: "https://mycompany.com",
+
+  // Navigation
+  links: [
+    { text: "Features", href: "#features" },
+    { text: "Pricing", href: "#pricing" },
+    { text: "About", href: "#about" },
+    { text: "Contact", href: "#contact" },
+  ],
+
+  // Socials
+  socials: [
+    { icon: "github", href: "https://github.com/mycompany", label: "GitHub" },
+    {
+      icon: "twitter",
+      href: "https://twitter.com/mycompany",
+      label: "Twitter",
+    },
+    {
+      icon: "linkedin",
+      href: "https://linkedin.com/company/mycompany",
+      label: "LinkedIn",
+    },
+  ],
+
+  // Glass Effect
+  refraction: 0.05,
+  frost: 0.712,
+  bevelDepth: 0.1,
+  bevelWidth: 0.1,
+  magnify: 1.025,
+  shadow: true,
+  specular: true,
+  resolution: 2,
+  chromaticAberration: 0.01,
+
+  // Animation
+  animationDuration: 1.5,
+  animationDelay: 0.5,
+  animationEase: "expo.out",
+
+  // Callbacks
+  onInit: (lens) => console.log("Initialized!", lens),
+  onReady: (effect) => console.log("Ready!", effect),
+});
+
+header.render("#app");
 ```
+
+## 📄 File Structure
+
+```
+liquid-glass-header/
+├── liquidgl-header.module.js  # Main component module
+├── liquidGL.js                # Core glass effect library
+├── html2canvas.min.js         # Snapshot utility
+├── demo.html                  # Live demo
+├── demo-style.css            # Demo styles
+├── assets/                   # Images and resources
+└── README.md                 # Documentation
+```
+
+## 🔧 Dependencies
+
+- **liquidGL** - WebGL-powered glassmorphism library by [NaughtyDuk](https://liquidgl.naughtyduk.com)
+- **GSAP** - Animation library (optional but recommended)
+- **html2canvas** - DOM snapshot utility
+
+## 📜 License
+
+MIT License - feel free to use in personal and commercial projects.
+
+## 🙏 Attribution
+
+This component is built on top of:
+
+- **[liquidGL](https://liquidgl.naughtyduk.com)** by [NaughtyDuk](https://liquidgl.naughtyduk.com)  
+  _Ultra-light glassmorphism for the web_  
+  © NaughtyDuk - MIT License
+
+- **[GSAP (GreenSock Animation Platform)](https://greensock.com/gsap/)**  
+  _Professional-grade JavaScript animation library_
+
+- **[html2canvas](https://html2canvas.hertzen.com/)**  
+  _JavaScript HTML renderer_
+
+## ⚡ Performance Tips
+
+1. **Resolution**: Lower `resolution` values (e.g., `1.5`) improve performance on lower-end devices
+2. **Frost**: High frost values are computationally expensive - use sparingly
+3. **Chromatic Aberration**: Keep values low (< 0.02) for best visual quality
+4. **Shadow**: Disable if performance is critical
+
+## 🐛 Known Issues
+
+- Currently only supports Chrome (latest version)
+- May have performance impact on older GPUs
+- Requires WebGL support
+
+## 🚀 Future Improvements
+
+- [ ] Cross-browser compatibility (Firefox, Safari, Edge)
+- [ ] Fallback for non-WebGL browsers
+- [ ] Mobile hamburger menu option
+- [ ] Additional icon sets
+- [ ] TypeScript definitions
+
+## 📞 Support
+
+For issues, questions, or contributions, please visit the project repository.
+
+---
+
+**Made with 🌊 and WebGL**
