@@ -11,8 +11,6 @@ A stunning, interactive header component featuring WebGL-powered glassmorphism e
 - ✅ Chrome (latest version) - **Fully Supported**
 - ❌ Firefox - Not yet supported
 - ❌ Safari - Not yet supported
-- ❌ Edge - Not yet supported
-- ❌ Other browsers - Not yet supported
 
 The component uses advanced WebGL features and CSS properties that may not be fully compatible with other browsers. We are working on broader browser support in future releases.
 
