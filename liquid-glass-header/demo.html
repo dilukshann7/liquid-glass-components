@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liquid Glass Header Demo</title>
+    <link rel="stylesheet" href="./demo-style.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <div>
+      <div class="container">
+        <h1>Hi There!</h1>
+        <p>This is a demo page for the Liquid Glass Header component.</p>
+        <p>Scroll down to see the effect in action.</p>
+      </div>
+      <div class="photos">
+        <img src="./assets/liquid-bkg-_0000_Comp-33.webp" alt="Photo 1" />
+        <img src="./assets/liquid-bkg-_0001_Comp-183.webp" alt="Photo 2" />
+        <img src="./assets/liquid-bkg-_0002_Comp-163.webp" alt="Photo 3" />
+        <img src="./assets/liquid-bkg-_0003_Comp-151.webp" alt="Photo 4" />
+        <img src="./assets/liquid-bkg-_0004_Comp-13.webp" alt="Photo 5" />
+      </div>
+    </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="./html2canvas.min.js"></script>
+    <script src="./liquidGL.js"></script>
+
+    <script type="module">
+      import { LiquidGLHeader } from "./liquidgl-header.module.js";
+
+      const header = new LiquidGLHeader({
+        // Brand Configuration
+        logo: "./assets/logo.svg",
+        logoAlt: "Liquid Glass",
+        brandName: "Liquid Glass",
+        brandHref: "https://apple.com",
+
+        // Navigation Links
+        links: [
+          { text: "Features", href: "#features" },
+          { text: "Docs", href: "#docs" },
+          { text: "Examples", href: "#examples" },
+          { text: "About", href: "#about" },
+        ],
+
+        // Social Media Links
+        socials: [
+          { icon: "github", href: "https://github.com", label: "GitHub" },
+          { icon: "twitter", href: "https://twitter.com", label: "Twitter" },
+          { icon: "linkedin", href: "https://linkedin.com", label: "LinkedIn" },
+        ],
+
+        // Glass Effect Configuration
+        refraction: 0.05,
+        frost: 0.712,
+        bevelDepth: 0.1,
+        bevelWidth: 0.1,
+        magnify: 1.025,
+        shadow: true,
+        specular: true,
+        resolution: 2,
+        chromaticAberration: 0.01,
+
+        // Animation Configuration
+        animationDuration: 1.5,
+        animationDelay: 0.5,
+        animationEase: "expo.out",
+      });
+      header.render("#app");
+    </script>
+  </body>
+</html>
