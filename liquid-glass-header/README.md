@@ -1,10 +1,10 @@
-# 🌊 Liquid Glass Header
+# Liquid Glass Header
 
 A stunning, interactive header component featuring WebGL-powered glassmorphism effects. Built with liquidGL and ES6 modules for easy integration.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## ⚠️ Browser Compatibility
+## Browser Compatibility
 
 **IMPORTANT: This component currently works only with the latest version of Google Chrome.**
 
@@ -16,17 +16,17 @@ A stunning, interactive header component featuring WebGL-powered glassmorphism e
 
 The component uses advanced WebGL features and CSS properties that may not be fully compatible with other browsers. We are working on broader browser support in future releases.
 
-## ✨ Features
+## Features
 
-- 🎨 **Ultra-realistic glass effect** with refraction, frost, and chromatic aberration
-- 💎 **Customizable properties** - control refraction, frost, bevel depth, magnification, and more
-- 🎬 **Smooth reveal animations** with GSAP integration
-- 📱 **Responsive design** with mobile-optimized settings
-- ⚡ **Hardware-accelerated** WebGL rendering
-- 🔌 **Easy integration** as ES6 module
-- 🎯 **Flexible navigation** with built-in social media icons
+- **Ultra-realistic glass effect** with refraction, frost, and chromatic aberration
+- **Customizable properties** - control refraction, frost, bevel depth, magnification, and more
+- **Smooth reveal animations** with GSAP integration
+- **Responsive design** with mobile-optimized settings
+- **Hardware-accelerated** WebGL rendering
+- **Easy integration** as ES6 module
+- **Flexible navigation** with built-in social media icons
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 
@@ -78,7 +78,7 @@ Include the required dependencies in your HTML:
 </script>
 ```
 
-## 🎛️ Configuration Options
+## Configuration Options
 
 ### Brand Configuration
 
@@ -145,7 +145,7 @@ socials: [
 }
 ```
 
-## 💡 Advanced Usage
+## Advanced Usage
 
 ### Custom Styling
 
@@ -189,7 +189,7 @@ The component automatically adjusts for mobile devices:
 - Adjusted container dimensions and positioning
 - Touch-optimized interactions
 
-## 🎨 Complete Example
+## Complete Example
 
 ```javascript
 import { LiquidGLHeader } from "./liquidgl-header.module.js";
@@ -248,7 +248,7 @@ const header = new LiquidGLHeader({
 header.render("#app");
 ```
 
-## 📄 File Structure
+## File Structure
 
 ```
 liquid-glass-header/
@@ -261,17 +261,17 @@ liquid-glass-header/
 └── README.md                 # Documentation
 ```
 
-## 🔧 Dependencies
+## Dependencies
 
 - **liquidGL** - WebGL-powered glassmorphism library by [NaughtyDuk](https://liquidgl.naughtyduk.com)
 - **GSAP** - Animation library (optional but recommended)
 - **html2canvas** - DOM snapshot utility
 
-## 📜 License
+## License
 
 MIT License - feel free to use in personal and commercial projects.
 
-## 🙏 Attribution
+## Attribution
 
 This component is built on top of:
 
@@ -285,20 +285,20 @@ This component is built on top of:
 - **[html2canvas](https://html2canvas.hertzen.com/)**  
   _JavaScript HTML renderer_
 
-## ⚡ Performance Tips
+## Performance Tips
 
 1. **Resolution**: Lower `resolution` values (e.g., `1.5`) improve performance on lower-end devices
 2. **Frost**: High frost values are computationally expensive - use sparingly
 3. **Chromatic Aberration**: Keep values low (< 0.02) for best visual quality
 4. **Shadow**: Disable if performance is critical
 
-## 🐛 Known Issues
+## Known Issues
 
 - Currently only supports Chrome (latest version)
 - May have performance impact on older GPUs
 - Requires WebGL support
 
-## 🚀 Future Improvements
+## Future Improvements
 
 - [ ] Cross-browser compatibility (Firefox, Safari, Edge)
 - [ ] Fallback for non-WebGL browsers
@@ -306,7 +306,7 @@ This component is built on top of:
 - [ ] Additional icon sets
 - [ ] TypeScript definitions
 
-## 📞 Support
+## Support
 
 For issues, questions, or contributions, please visit the project repository.
 
