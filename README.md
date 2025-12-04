@@ -25,7 +25,7 @@ Interactive header with WebGL-powered glassmorphism effects.
 
 ## Browser Support
 
-Currently supports **Chrome (latest version)** only. Firefox, Safari, and Edge support coming soon.
+Currently supports **Chrome & Chromium based browsers (latest version)** only. Firefox, Safari support coming soon.
 
 ## Built With
 
