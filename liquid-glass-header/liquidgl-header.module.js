@@ -1,25 +1,3 @@
-/**
- * LiquidGL Header Component
- * ES6 Module - Import and render with props
- *
- * @example
- * import { LiquidGLHeader } from './liquidgl-header.module.js';
- *
- * const header = new LiquidGLHeader({
- *   logo: './assets/logo.svg',
- *   brandName: 'My Brand',
- *   links: [
- *     { text: 'About', href: '#about' },
- *     { text: 'Services', href: '#services' }
- *   ],
- *   socials: [
- *     { icon: 'github', href: 'https://github.com/user' }
- *   ]
- * });
- *
- * header.render('#app');
- */
-
 class LiquidGLHeader {
   constructor(props = {}) {
     this.props = {
